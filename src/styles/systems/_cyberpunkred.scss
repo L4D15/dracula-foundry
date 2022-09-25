@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
 @import "../helpers/variables";
 
-$main-font: "Roboto Mono", monospace;
-$title-font: "Share Tech Mono", monospace;
+$main-font: "Fira Code", monospace;
+$title-font: "Jost", sans-serif;
 $background-color: var(--color-dracula-content-window);
 $muted-color: var(--color-dracula-inactive);
 $text-color: var(--color-dracula-text-primary);
@@ -13,11 +15,14 @@ $text-color: var(--color-dracula-text-primary);
 }
 
 .system-cyberpunk-red-core {
+  .actor-sheet {
+    grid-template-columns: 200px auto;
+  }
+
   .actor-sheet,
   .item-sheet {
     font-family: $main-font;
     background-color: $background-color !important;
-    grid-template-columns: 200px auto;
 
     input {
       &:hover {
@@ -41,6 +46,7 @@ $text-color: var(--color-dracula-text-primary);
       background: none;
       clip-path: none;
       padding-left: 0px;
+      margin-left: 0px;
     }
 
     .tab-label {
@@ -48,6 +54,7 @@ $text-color: var(--color-dracula-text-primary);
       color: var(--color-dracula-inactive);
       text-transform: uppercase;
       font-size: 1rem;
+      border-bottom: 1px solid var(--color-dracula-border-secondary);
 
       &.tab-indent {
         clip-path: none;
@@ -56,7 +63,7 @@ $text-color: var(--color-dracula-text-primary);
       &.active {
         color: var(--color-dracula-text-primary);
         border: 1px solid var(--color-dracula-border-secondary);
-        background: var(--color-dracula-border-secondary) !important;
+        background: none !important;
         border-bottom: none;
       }
     }
@@ -64,21 +71,28 @@ $text-color: var(--color-dracula-text-primary);
     // List of items, generic style
     .items-list {
       background: none;
+      border: 1px solid var(--color-dracula-border-secondary);
+      margin-bottom: 1rem;
 
       .items-header {
-        font-family: $title-font;
+        font-size: 0.7rem;
         background: var(--color-dracula-border-secondary);
         color: var(--color-dracula-text-tertiary);
-        border-bottom: 1px solid $muted-color;
+        border-bottom: 1px solid var(--color-dracula-border-secondary);
         text-transform: uppercase;
+        font-weight: bold;
+        padding-left: 0.1rem;
+
+        .item-name {
+          font-size: 0.8rem;
+        }
       }
 
       .item {
-        font-size: 0.7rem;
-        padding: 0.1rem 0.1rem 0.1rem 0.2rem;
+        padding: 0rem 0rem 0rem 0.3rem;
 
         &:nth-child(odd) {
-            background: none !important;
+          background: var(--color-dracula-table-alternate) !important;
         }
 
         &:nth-child(even) {
@@ -86,15 +100,15 @@ $text-color: var(--color-dracula-text-primary);
         }
 
         &:last-of-type {
-            margin-bottom: 0.5rem;
+          //   margin-bottom: 0.5rem;
         }
 
         &:hover {
-            background: var(--color-dracula-accent);
+          background: var(--color-dracula-accent);
         }
 
         .text-bold {
-            color: var(--color-dracula-accent-secondary);
+          color: var(--color-dracula-accent-secondary);
         }
       }
     }
@@ -102,7 +116,6 @@ $text-color: var(--color-dracula-text-primary);
     .main-block {
       background-color: var(--color-dracula-content) !important;
       color: var(--color-dracula-text-primary) !important;
-      //border: 1px solid var(--color-dracula-accent) !important;
       margin: 0rem 0rem 0.5rem 0rem !important;
       padding: 0.2rem;
       height: auto;
@@ -197,6 +210,7 @@ $text-color: var(--color-dracula-text-primary);
       background: $background-color;
       padding: 0rem 0.2rem;
       border: none;
+      font-size: 0.75rem;
 
       .right-tabs-section {
         height: auto;
@@ -205,10 +219,43 @@ $text-color: var(--color-dracula-text-primary);
 
       .right-content-section {
         border: 1px solid var(--color-dracula-border-secondary);
+        border-top: none;
         padding: 0.5rem;
       }
 
       .skills-tab {
+        background: none;
+        grid-gap: 1rem;
+
+        .left-pane-skills,
+        .right-pane-skills {
+          &.items-list {
+            border: none;
+          }
+        }
+      }
+
+      .gear-tab {
+        background: none;
+        
+        .gear-list {
+          &.items-list {
+            border: none;
+          }
+        }
+      }
+
+      .cyberware-tab {
+        background: none;
+
+        .cyberware-list {
+          &.items-list {
+            border: none;
+          }
+        }
+      }
+
+      .effect-tab {
         background: none;
       }
     }
