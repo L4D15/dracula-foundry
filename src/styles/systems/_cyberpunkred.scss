@@ -37,6 +37,68 @@ $text-color: var(--color-dracula-text-primary);
       }
     }
 
+    .tab-pink-underlay {
+      background: none;
+      clip-path: none;
+      padding-left: 0px;
+    }
+
+    .tab-label {
+      background: var(--color-dracula-content-window);
+      color: var(--color-dracula-inactive);
+      text-transform: uppercase;
+      font-size: 1rem;
+
+      &.tab-indent {
+        clip-path: none;
+      }
+
+      &.active {
+        color: var(--color-dracula-text-primary);
+        border: 1px solid var(--color-dracula-border-secondary);
+        background: var(--color-dracula-border-secondary) !important;
+        border-bottom: none;
+      }
+    }
+
+    // List of items, generic style
+    .items-list {
+      background: none;
+
+      .items-header {
+        font-family: $title-font;
+        background: var(--color-dracula-border-secondary);
+        color: var(--color-dracula-text-tertiary);
+        border-bottom: 1px solid $muted-color;
+        text-transform: uppercase;
+      }
+
+      .item {
+        font-size: 0.7rem;
+        padding: 0.1rem 0.1rem 0.1rem 0.2rem;
+
+        &:nth-child(odd) {
+            background: none !important;
+        }
+
+        &:nth-child(even) {
+          background: none !important;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0.5rem;
+        }
+
+        &:hover {
+            background: var(--color-dracula-accent);
+        }
+
+        .text-bold {
+            color: var(--color-dracula-accent-secondary);
+        }
+      }
+    }
+
     .main-block {
       background-color: var(--color-dracula-content) !important;
       color: var(--color-dracula-text-primary) !important;
@@ -113,9 +175,7 @@ $text-color: var(--color-dracula-text-primary);
       }
     }
 
-    .deathsave-block {
-    }
-
+    // Left pane with the character avatar, data and stas.
     .left-pane {
       background-color: $background-color !important;
 
@@ -132,13 +192,28 @@ $text-color: var(--color-dracula-text-primary);
       }
     }
 
+    // Main panel with skills, equipment, etc
     .right-pane {
+      background: $background-color;
+      padding: 0rem 0.2rem;
+      border: none;
+
       .right-tabs-section {
         height: auto;
         font-family: $title-font;
       }
+
+      .right-content-section {
+        border: 1px solid var(--color-dracula-border-secondary);
+        padding: 0.5rem;
+      }
+
+      .skills-tab {
+        background: none;
+      }
     }
 
+    // Bottom pane with extra details
     .bottom-pane {
       .bottom-tabs-section {
         height: auto;
@@ -147,10 +222,6 @@ $text-color: var(--color-dracula-text-primary);
     }
 
     .block-label {
-      font-family: $title-font;
-    }
-
-    .items-header {
       font-family: $title-font;
     }
   }
@@ -173,13 +244,13 @@ $text-color: var(--color-dracula-text-primary);
     }
 
     .item-settings-tab {
-      ol {
-        &.items-list {
-          li.item:nth-child(odd) {
-            background-color: var(--color-dracula-border-secondary);
-          }
-        }
-      }
+      //   ol {
+      //     &.items-list {
+      //       li.item:nth-child(odd) {
+      //         background-color: var(--color-dracula-border-secondary);
+      //       }
+      //     }
+      //   }
 
       .setting-name {
         font-family: $title-font;
@@ -194,18 +265,6 @@ $text-color: var(--color-dracula-text-primary);
 
         .effects-list {
           background: none !important;
-        }
-      }
-    }
-
-    .skills-tab {
-      .items-list {
-        .item {
-          font-size: 0.7rem;
-
-          &:nth-child(odd) {
-            background-color: var(--color-dracula-border-secondary);
-          }
         }
       }
     }
@@ -234,35 +293,10 @@ $text-color: var(--color-dracula-text-primary);
 
 .system-cyberpunk-red-core .actor-sheet .right-content-section,
 .system-cyberpunk-red-core .item-sheet .item-bottom-content-section {
-  border-color: var(--color-dracula-border) !important;
-  border-width: 0px;
-  padding: 0px;
-  border: none;
-}
-
-.system-cyberpunk-red-core .actor-sheet .right-content-section .skills-tab {
-  background-color: var(--color-dracula-content) !important;
-}
-
-.system-cyberpunk-red-core .actor-sheet .tab .items-list {
-  background-color: var(--color-dracula-content) !important;
-}
-
-.system-cyberpunk-red-core .actor-sheet .tab .items-header,
-.system-cyberpunk-red-core .actor-sheet .armor-content .fight-armor-list .item {
-  background-color: var(--color-dracula-accent) !important;
-}
-
-.system-cyberpunk-red-core .actor-sheet .items-list li:nth-child(odd) {
-  background-color: var(--color-dracula-content);
-}
-
-.system-cyberpunk-red-core .actor-sheet .items-list li:nth-child(even) {
-  background-color: var(--color-dracula-content) !important;
-}
-
-.system-cyberpunk-red-core .actor-sheet .tab .items-list li .text-bold {
-  color: var(--color-dracula-text-highlight) !important;
+  //   border-color: var(--color-dracula-border) !important;
+  //   border-width: 0px;
+  //   padding: 0px;
+  //   border: none;
 }
 
 .system-cyberpunk-red-core .actor-sheet .tab .items-header span {
@@ -296,7 +330,6 @@ $text-color: var(--color-dracula-text-primary);
   .item-sheet
   .item-bottom-content-section
   .item-settings-section,
-.system-cyberpunk-red-core .item-sheet .item-bottom-content-section .items-list,
 .system-cyberpunk-red-core
   .item-sheet
   .item-bottom-content-section
@@ -312,35 +345,6 @@ $text-color: var(--color-dracula-text-primary);
   .compatible-ammo
   li:nth-child(even) {
   background-color: var(--color-dracula-content) !important;
-}
-
-.system-cyberpunk-red-core .actor-sheet .tab-pink-underlay,
-.system-cyberpunk-red-core
-  .item-sheet
-  .item-bottom-tabs-section
-  .tab-pink-underlay {
-  background-color: var(--color-dracula-accent-secondary) !important;
-}
-
-.system-cyberpunk-red-core
-  .actor-sheet
-  .tab-pink-underlay
-  .tab-label.tab-indent,
-.system-cyberpunk-red-core
-  .item-sheet
-  .item-bottom-tabs-section
-  .tab-pink-underlay
-  .tab-label.tab-indent {
-  background-color: var(--color-dracula-inactive) !important;
-}
-
-.system-cyberpunk-red-core .actor-sheet .tab-pink-underlay .tab-label.active,
-.system-cyberpunk-red-core
-  .item-sheet
-  .item-bottom-tabs-section
-  .tab-pink-underlay
-  .tab-label.active {
-  background-color: var(--color-dracula-accent) !important;
 }
 
 .system-cyberpunk-red-core .bottom-pane .bottom-content-section {
