@@ -266,6 +266,16 @@ $text-color: var(--color-dracula-text-primary);
         height: auto;
         font-family: $title-font;
       }
+
+      .fight-tab {
+        .armor-content {
+          background: var(--color-dracula-content);
+
+          li {
+            background: none;
+          }
+        }
+      }
     }
 
     .block-label {
